@@ -21,7 +21,7 @@ Each script is self-contained and beginner-friendly.
    ```bash
    git clone https://github.com/glitchXBT/random-py-projects.git
    cd random-py-projects
-````
+   ```
 
 2. Run any script with Python:
 
