@@ -31,19 +31,16 @@ Game_over = False
 playables = (1,2,3,4,5,6,7,8,9)
 play_count = 0
 
-board[0] = "x"
+while Game_over == False:
+    print_grid()
 
-print_grid()
-# while Game_over == False:
-#     print_grid()
+    player1_move = player1.get_move()
+    if player1_move in playables:
+        board[player1_move -1] = "x"
+        print_grid()
 
-#     player1_move = player1.get_move()
-#     if player1_move in playables:
-#         grid_fields[player1_move -1] = "x"
-#         print_grid()
+        Game_over = True
 
-#         Game_over = True
 
-# a = "x"
 
 
