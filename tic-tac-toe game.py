@@ -1,18 +1,8 @@
-board = {
-    'a': " ",
-    'b': " ",
-    'c': " ",
-    'd': " ",
-    'e': " ",
-    'f': " ",
-    'g': " ",
-    'h': " ",
-    'i': " "
-}
-
+board = [" "," "," "," "," "," "," "," "," "]
+print(board[0])
 
 def print_grid():
-    grid  = (f"{a}|{b}|{c}\n-----\n{d}|{e}|{f}\n-----\n{g}|{h}|{i}")
+    grid  = (f"{board[0]}|{board[1]}|{board[2]}\n-----\n{board[3]}|{board[4]}|{board[5]}\n-----\n{board[6]}|{board[7]}|{board[8]}")
     print(grid)
 
 
@@ -44,15 +34,15 @@ play_count = 0
 board[0] = "x"
 
 print_grid()
-while Game_over == False:
-    print_grid()
+# while Game_over == False:
+#     print_grid()
 
-    player1_move = player1.get_move()
-    if player1_move in playables:
-        grid_fields[player1_move -1] = "x"
-        print_grid()
+#     player1_move = player1.get_move()
+#     if player1_move in playables:
+#         grid_fields[player1_move -1] = "x"
+#         print_grid()
 
-        Game_over = True
+#         Game_over = True
 
 # a = "x"
 
