@@ -35,13 +35,23 @@ while Game_over == False:
 
     player1_move = player1.get_move()
     if player1_move in playables:
-        board[player1_move -1] = "x"
+        board[player1_move -1] = "X"
+
         play_count += 1
+
         print_grid()
+
+        
     else:
         print("Enter a valid grid position")
-        
-        Game_over = True
+    
+    player2_move = player2.get_move()
+    if player2_move in playables:
+        board[player2_move -1] = "O"
+        play_count += 2
+
+        print_grid()    
+    Game_over = True
 
 
 
