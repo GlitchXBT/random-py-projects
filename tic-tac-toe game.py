@@ -3,11 +3,10 @@ class Game:
     play_count = 0
     playables = (1,2,3,4,5,6,7,8,9)
     played_grids = []
-    winner_found = False
 
     @staticmethod
     def grid():
-        grid  = (f"\n{Game.board[0]}|{Game.board[1]}|{Game.board[2]}\n-----\n{Game.board[3]}|{Game.board[4]}|{Game.board[5]}\n-----\n{Game.board[6]}|{Game.board[7]}|{Game.board[8]}")
+        grid  = (f"\n{Game.board[0]}|{Game.board[1]}|{Game.board[2]}\n-----\n{Game.board[3]}|{Game.board[4]}|{Game.board[5]}\n-----\n{Game.board[6]}|{Game.board[7]}|{Game.board[8]}\n")
         print(grid)
 
 
@@ -17,7 +16,7 @@ class Game:
         
     
     def make_move(self):
-        move = int(input(f"\n{self.name},you are {self.move_type} >>> "))
+        move = int(input(f"\n{self.name}, you are {self.move_type} >>> "))
     
         if move in Game.playables and move not in Game.played_grids:
                 Game.board[move -1] = self.move_type # set the move on the board
@@ -26,13 +25,41 @@ class Game:
         else:
             print("\nEnter a valid grid position")
 
+    winner_found = False
     @staticmethod
     def winner_checker():
-        if Game.board.count[0] == Game.board[1] == Game.board[3]:
-            print(f"{Game.board[0]} wins")
+        empty_grid = " "
+        # horizontal grid check
+        if Game.board[0] == Game.board[1] == Game.board[2] != empty_grid:
+            print(f"{Game.board[0]} wins (horizontal checkmate)")
+            Game.winner_found = True
+        elif Game.board[3] == Game.board[4] == Game.board[5] != empty_grid:
+            print(f"{Game.board[3]} wins (horizontal checkmate)")
+            Game.winner_found = True
+        elif Game.board[6] == Game.board[7] == Game.board[8] != empty_grid:
+            print(f"{Game.board[6]} wins (horizontal checkmate)")
+            Game.winner_found = True
+
+        # vertical grid check
+        elif Game.board[0] == Game.board[3] == Game.board[6] != empty_grid:
+            print(f"{Game.board[0]} wins (vertical checkmate)")
+            Game.winner_found = True
+        elif Game.board[1] == Game.board[4] == Game.board[7] != empty_grid:
+            print(f"{Game.board[1]} wins (vertical checkmate)")
+            Game.winner_found = True
+        elif Game.board[2] == Game.board[5] == Game.board[8] != empty_grid:
+            print(f"{Game.board[2]} wins (vertical checkmate)")
+            Game.winner_found = True
+
+        # diagonal grid check
+        elif Game.board[0] == Game.board[4] == Game.board[8] != empty_grid:
+            print(f"{Game.board[0]} wins (diagonal checkmate)")
+            Game.winner_found = True
+        elif Game.board[6] == Game.board[4] == Game.board[2] != empty_grid:
+            print(f"{Game.board[0]} wins (diagonal checkmate)")
             Game.winner_found = True
         else:
-            print(f"The current game's play count is {Game.play_count}")
+            print(f"Total moves played: {Game.play_count}")
         
 
 player1 = Game(move_type="x", name="playerOne")
@@ -42,17 +69,21 @@ player2 = Game(move_type="o", name="playerTwo")
 # playloop
 def game_instance():
     
-    Game.grid()
 
-    for i in str(Game.playables) :
+    while Game.winner_found == False:
+        Game.grid()
+    
+        
         player1.make_move()
         Game.grid()
-        if Game.play_count >= 3:
-            Game.winner_checker()
+        Game.winner_checker()
+        if Game.winner_found == True:
+            break
         player2.make_move()
         Game.grid()
-        if Game.play_count >= 3:
-            Game.winner_checker()
+        Game.winner_checker()
+        if Game.winner_found == True:
+            break
     
     
 
