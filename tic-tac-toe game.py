@@ -24,7 +24,7 @@ class Game:
                 Game.played_grids.append(move) # add played index to played_grids
         
         else:
-            print("\n⚠️ Enter a valid grid position")
+            print("\n⚠️: Enter a valid grid position")
 
     winner_found = False
 
