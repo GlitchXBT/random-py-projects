@@ -60,7 +60,7 @@ class Game:
             print(f"{Game.board[0]} wins (diagonal checkmate)")
             Game.winner_found = True
         else:
-            print(f"Total moves played: {Game.play_count}")
+            print(f"\nTotal moves played: {Game.play_count}")
         
 # Object creation
 player1 = Game(move_type="x", name="playerOne")
@@ -81,7 +81,6 @@ def game_instance():
         if Game.winner_found == True:
             break
         player2.make_move()
-        Game.grid()
         Game.winner_checker()
 
         if Game.winner_found == True:
