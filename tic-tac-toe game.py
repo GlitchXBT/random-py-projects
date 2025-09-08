@@ -26,6 +26,7 @@ class Game:
             print("\nEnter a valid grid position")
 
     winner_found = False
+
     @staticmethod
     def winner_checker():
         empty_grid = " "
@@ -73,22 +74,19 @@ def game_instance():
     while Game.winner_found == False:
         Game.grid()
     
-        
         player1.make_move()
         Game.grid()
         Game.winner_checker()
+
         if Game.winner_found == True:
             break
         player2.make_move()
         Game.grid()
         Game.winner_checker()
+
         if Game.winner_found == True:
             break
     
-    
-
-
-
 
 game_instance()
 
