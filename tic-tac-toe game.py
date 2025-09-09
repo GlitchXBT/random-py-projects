@@ -75,8 +75,8 @@ class Game:
                     return
 
 
-# Run the game
-p1 = Player("Alice", "X")
-p2 = Player("Bob", "O")
+
+p1 = Player("PlayerONE", "X")
+p2 = Player("PlayerTWO", "O")
 game = Game(p1, p2)
 game.play()
